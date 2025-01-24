@@ -37,6 +37,6 @@ public class Duck : MonoBehaviour
 
     public void ChangeSpeed(float factorNormalized)
     {
-        _rigidbody.AddForce(factorNormalized * _rigidbody.linearVelocity * 1, ForceMode.Acceleration);
+        _rigidbody.AddForce(factorNormalized * _rigidbody.linearVelocity * 5, ForceMode.Acceleration);
     }
 }
