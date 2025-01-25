@@ -7,7 +7,9 @@ public class Bubbles : MonoBehaviour
     float soapQuantityNormalized;
 
     [SerializeField]
-    ParticleSystem _bubblesParticules;
+    ParticleSystem _littleBubblesParticules;
+    [SerializeField]
+    ParticleSystem _bigBubblesParticules;
     [SerializeField]
     ParticleSystem _foamParticules;
 
@@ -20,8 +22,11 @@ public class Bubbles : MonoBehaviour
 
     private void Start()
     {
-        ParticleSystem.MainModule bubbleMain = _bubblesParticules.main;
-        bubbleMain.maxParticles = maxBubbles;
+        ParticleSystem.MainModule littleBubbleMain = _littleBubblesParticules.main;
+        ParticleSystem.MainModule bigBubbleMain = _bigBubblesParticules.main;
+        littleBubbleMain.maxParticles = maxBubbles;
+        bigBubbleMain.maxParticles = maxBubbles;
+
         ParticleSystem.MainModule foamMain = _foamParticules.main;
         foamMain.maxParticles = maxFoam;
     }
@@ -35,8 +40,12 @@ public class Bubbles : MonoBehaviour
     {
         soapQuantityNormalized = amount;
 
-        ParticleSystem.EmissionModule bubbleEmission = _bubblesParticules.emission;
-        bubbleEmission.rateOverTime = (soapQuantityNormalized * maxBubbles);
+        ParticleSystem.EmissionModule littleBubbleEmission = _littleBubblesParticules.emission;
+        ParticleSystem.EmissionModule bigBubbleEmission = _bigBubblesParticules.emission;
+
+        littleBubbleEmission.rateOverTime = (soapQuantityNormalized * maxBubbles);
+        bigBubbleEmission.rateOverTime = (soapQuantityNormalized * maxBubbles);
+
         ParticleSystem.EmissionModule foamEmission = _foamParticules.emission;
         foamEmission.rateOverTime = (soapQuantityNormalized * maxFoam);
     }
@@ -44,13 +53,17 @@ public class Bubbles : MonoBehaviour
     public void Play()
     {
         _activeTimer = 0.2f;
-        if (!_bubblesParticules.isPlaying)
+        if (!_littleBubblesParticules.isPlaying)
         {
-            _bubblesParticules.Play();
+            _littleBubblesParticules.Play();
         }
         if (!_foamParticules.isPlaying)
         {
             _foamParticules.Play();
+        }
+        if (!_bigBubblesParticules.isPlaying)
+        {
+            _bigBubblesParticules.Play();
         }
     }
 
@@ -58,7 +71,8 @@ public class Bubbles : MonoBehaviour
     {
         if (_activeTimer <= 0)
         {
-            _bubblesParticules.Stop();
+            _littleBubblesParticules.Stop();
+            _bigBubblesParticules.Stop();
             _foamParticules.Stop();
         }
     }
