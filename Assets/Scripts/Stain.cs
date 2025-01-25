@@ -8,14 +8,18 @@ public class Stain : MonoBehaviour
     [SerializeField] private float yPosUpperLimit;
     [SerializeField] private float yPosLowerLimit;
     [SerializeField] List<GameObject> dirtModels;
+    [SerializeField] List<Material> dirtTextures;
     private Transform dirtTransform;
     private GameObject cleanEffect;
 
 
     public void Start()
     {
-        GameObject dirtModel = dirtModels[Random.Range(1, dirtModels.Count)];
+        GameObject dirtModel = dirtModels[Random.Range(0, maxExclusive:dirtModels.Count)];
         dirtTransform = Instantiate(dirtModel, transform).transform;
+        MeshRenderer dirtRenderer = dirtTransform.GetComponent<MeshRenderer>();
+        int random = Random.Range(0, maxExclusive:dirtTextures.Count);
+        dirtRenderer.material = dirtTextures[random];
         cleanEffect = transform.Find("CleanEffect").gameObject;
         CleanStain(0);
     }
