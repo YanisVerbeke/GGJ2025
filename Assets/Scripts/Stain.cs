@@ -11,6 +11,7 @@ public class Stain : MonoBehaviour
     [SerializeField] List<Material> dirtTextures;
     private Transform dirtTransform;
     private GameObject cleanEffect;
+    public bool IsCleaned { get; private set; }
 
 
     public void Start()
@@ -22,11 +23,20 @@ public class Stain : MonoBehaviour
         dirtRenderer.material = dirtTextures[random];
         cleanEffect = transform.Find("CleanEffect").gameObject;
         CleanStain(0);
+        IsCleaned = false;
+    }
+
+    private void Update()
+    {
+        if (Camera.main.transform.position.z > transform.position.z + 10)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void CleanStain(float cleaningAmount)
     {
-        if (_currentCleanStatus < 1f)
+        if (!IsCleaned)
         {
             _currentCleanStatus = Mathf.Clamp(_currentCleanStatus + (cleaningAmount * Time.deltaTime), -1f, 1f);
             Vector3 dirtPosition = new Vector3(dirtTransform.position.x, Mathf.Lerp(yPosUpperLimit, yPosLowerLimit, (_currentCleanStatus + 1) / 2), dirtTransform.position.z);
@@ -37,7 +47,7 @@ public class Stain : MonoBehaviour
             }
             if (_currentCleanStatus >= 0.9f)
             {
-                Debug.Log("MAX");
+                IsCleaned = true;
             }
         }
     }
@@ -47,6 +57,14 @@ public class Stain : MonoBehaviour
         if (other.GetComponent<Duck>() != null)
         {
             other.GetComponent<Duck>().ChangeSpeed(_currentCleanStatus);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Duck>() != null && IsCleaned)
+        {
+            other.GetComponent<Duck>().Spin();
         }
     }
 }

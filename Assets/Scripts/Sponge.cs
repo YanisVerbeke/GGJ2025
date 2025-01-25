@@ -48,8 +48,11 @@ public class Sponge : MonoBehaviour
 
         if (lastPos != transform.position && _stain != null && _soapLevel > 0)
         {
-            CleanStain();
-            _bubbles.Play();
+            if (!_stain.IsCleaned)
+            {
+                CleanStain();
+                _bubbles.Play();
+            }
         }
         else
         {

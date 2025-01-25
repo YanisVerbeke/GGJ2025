@@ -548,10 +548,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1553593063804864065, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-      propertyPath: _littleBubblesParticules
-      value: 
-      objectReference: {fileID: 1755581883}
     - target: {fileID: 5666423793091968949, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -595,34 +591,6 @@ PrefabInstance:
     - target: {fileID: 5757809499749973392, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
       propertyPath: m_Name
       value: SpongeHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394732697491675919, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394732697491675919, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394732697491675919, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394732697491675919, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394732697491675919, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394732697491675919, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394732697491675919, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2120,10 +2088,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3197915062463348345, guid: 4f5dfc700ab2789fbb493e127605576e, type: 3}
-      propertyPath: _maxSpeed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 6483353040087941155, guid: 4f5dfc700ab2789fbb493e127605576e, type: 3}
       propertyPath: m_Name
       value: DuckHolder
@@ -2145,50 +2109,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirtHolder
       objectReference: {fileID: 0}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: dirtTextures.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: stainTextures.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'dirtTextures.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 81641aaf62603f84b88278df836d1a86, type: 2}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'dirtTextures.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 49378f261aa89234ead369ac9ce2e4d4, type: 2}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'dirtTextures.Array.data[3]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 7b22709b87e5a0647922f81a9c25abea, type: 2}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'stainTextures.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: ae261fc8e0517c345982b660b4239df6, type: 2}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'stainTextures.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 2724216c36e4aca439d990e28faec22d, type: 2}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'stainTextures.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e49c0c82a335cf046916899cdb0d81ae, type: 2}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'stainTextures.Array.data[3]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 81641aaf62603f84b88278df836d1a86, type: 2}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'stainTextures.Array.data[4]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 49378f261aa89234ead369ac9ce2e4d4, type: 2}
-    - target: {fileID: 5722726659380828814, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
-      propertyPath: 'stainTextures.Array.data[5]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 7b22709b87e5a0647922f81a9c25abea, type: 2}
     - target: {fileID: 7168755305516260095, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2234,11 +2154,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
---- !u!198 &1755581883 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6577548704245617003, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
-  m_PrefabInstance: {fileID: 627545025}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1873949134
 GameObject:
   m_ObjectHideFlags: 0
