@@ -22,6 +22,14 @@ public class Stain : MonoBehaviour
         IsCleaned = false;
     }
 
+    private void Update()
+    {
+        if (Camera.main.transform.position.z > transform.position.z + 10)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void CleanStain(float cleaningAmount)
     {
         if (!IsCleaned)
