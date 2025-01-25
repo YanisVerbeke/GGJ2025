@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513dacb6d7796e94c85d4b01e30fd0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 20
+  _force: 18
 --- !u!65 &50809530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -609,7 +609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ffaec688aee8c499152679b48757c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sponge: {fileID: 842522363}
 --- !u!65 &842522365
 BoxCollider:
   m_ObjectHideFlags: 0

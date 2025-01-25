@@ -24,15 +24,18 @@ public class Sponge : MonoBehaviour
         Vector3 newPos = mainCamera.ScreenToWorldPoint(screenPosition);
         transform.position = new Vector3(newPos.x, 1, newPos.z);
 
-        if (lastPos != transform.position)
+        if (lastPos != transform.position && bloc != null && _soapLevel > 0)
         {
-            if (bloc != null)
-            {
-                bloc.CleanStain(0.01f);
-            }
+            CleanStain();
         }
     }
 
+    private void CleanStain()
+    {
+        bloc.CleanStain(0.02f);
+        _soapLevel -= 0.01f;
+        Debug.Log("Soap level in sponge : " + _soapLevel);
+    }
     
 
     private void OnTriggerEnter(Collider other)
