@@ -3,7 +3,7 @@ using UnityEngine;
 public class Sponge : MonoBehaviour
 {
     [SerializeField]
-    private float cleanFactor = 0.02f;
+    private float cleanFactor = 2f;
     private Camera mainCamera;
     private float cameraZDistance;
     private Vector3 lastPos;
@@ -12,13 +12,28 @@ public class Sponge : MonoBehaviour
 
     private Bloc bloc;
     [SerializeField]
-    private float soapLevelStep = 0.02f;
+    private float soapLevelStep = 1f;
+
+
 
     private void Start()
     {
         mainCamera = Camera.main;
         cameraZDistance = mainCamera.WorldToScreenPoint(transform.position).z;
         lastPos = transform.position;
+        UiManager.Instance.OnToolChanged += UiManager_OnToolChanged;
+    }
+
+    private void UiManager_OnToolChanged(object sender, System.EventArgs e)
+    {
+        if (UiManager.Instance.CurrentTool == UiManager.Tool.SPONGE)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -34,21 +49,20 @@ public class Sponge : MonoBehaviour
         }
 
         //Partie debug, a enlever apres
-        if (Input.GetKeyDown(KeyCode.LeftControl)) 
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             ReloadSponge(0.6f);
         }
-        
+
     }
 
     private void CleanStain()
     {
-        float normalizedTimedFactor = Mathf.Clamp(cleanFactor + Time.deltaTime, -1, 1);
+        float normalizedTimedFactor = Mathf.Clamp(cleanFactor * Time.deltaTime, -1, 1);
         bloc.CleanStain(normalizedTimedFactor);
-        _soapLevel -= soapLevelStep;
-        Debug.Log("Soap level in sponge : " + _soapLevel);
+        _soapLevel -= soapLevelStep * Time.deltaTime;
     }
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -68,6 +82,6 @@ public class Sponge : MonoBehaviour
 
     public void ReloadSponge(float normalizedAmount)
     {
-        _soapLevel += normalizedAmount;
+        _soapLevel = Mathf.Clamp(_soapLevel + normalizedAmount, 0, 1);
     }
 }
