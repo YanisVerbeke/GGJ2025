@@ -27,7 +27,6 @@ public class Duck : MonoBehaviour
         }
         if (_rigidbody.linearVelocity.z > _maxSpeed)
         {
-            Debug.Log("sfkdhjlhds" + _rigidbody.linearVelocity.z);
             _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, _rigidbody.linearVelocity.y, _maxSpeed);
         }
         //Debug code, reset la position du canard a l'origine
