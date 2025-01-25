@@ -51,11 +51,15 @@ MonoBehaviour:
   yPosUpperLimit: 0.65
   yPosLowerLimit: 0.13
   dirtModels:
-  - {fileID: 919132149155446097, guid: 924cedd73531d1b40917a9c0c960cea9, type: 3}
   - {fileID: 919132149155446097, guid: 3460360c1ce1414438f40cdf45354a3c, type: 3}
   - {fileID: 919132149155446097, guid: cafe5fb35e1c31441a9f0e4277914d87, type: 3}
   - {fileID: 919132149155446097, guid: 5db87fec3f2c8a44f96e7d5d982a03a9, type: 3}
   - {fileID: 919132149155446097, guid: 6181d69e072aa31488f5859f88e83ccc, type: 3}
+  dirtTextures:
+  - {fileID: 2100000, guid: ae261fc8e0517c345982b660b4239df6, type: 2}
+  - {fileID: 2100000, guid: 81641aaf62603f84b88278df836d1a86, type: 2}
+  - {fileID: 2100000, guid: 49378f261aa89234ead369ac9ce2e4d4, type: 2}
+  - {fileID: 2100000, guid: 7b22709b87e5a0647922f81a9c25abea, type: 2}
 --- !u!65 &626352913489382115
 BoxCollider:
   m_ObjectHideFlags: 0
