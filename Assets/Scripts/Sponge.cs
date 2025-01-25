@@ -44,7 +44,7 @@ public class Sponge : MonoBehaviour
         lastPos = transform.position;
         Vector3 screenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraZDistance);
         Vector3 newPos = mainCamera.ScreenToWorldPoint(screenPosition);
-        transform.position = new Vector3(newPos.x, 0, newPos.z);
+        transform.position = new Vector3(newPos.x, 1, newPos.z);
 
         if (lastPos != transform.position && _stain != null && _soapLevel > 0)
         {
