@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Sponge : MonoBehaviour
 {
-    [SerializeField]
-    private float cleaningAmount = 2f;
+    [SerializeField] private float cleaningAmount = 2f;
+    [SerializeField] private float _soapConsumption = 0.2f;
     private Camera mainCamera;
     private float cameraZDistance;
     private Vector3 lastPos;
@@ -11,7 +11,6 @@ public class Sponge : MonoBehaviour
     private float _soapLevel = 1f;
 
     private Stain _stain;
-    private float _soapConsumption = 0.2f;
 
     private Bubbles _bubbles;
 
@@ -25,10 +24,10 @@ public class Sponge : MonoBehaviour
         mainCamera = Camera.main;
         cameraZDistance = mainCamera.WorldToScreenPoint(transform.position).z;
         lastPos = transform.position;
-        //UiManager.Instance.OnToolChanged += UiManager_OnToolChanged;
+        UiManager.Instance.OnToolChanged += UiManager_OnToolChanged;
     }
 
-    /*private void UiManager_OnToolChanged(object sender, System.EventArgs e)
+    private void UiManager_OnToolChanged(object sender, System.EventArgs e)
     {
         if (UiManager.Instance.CurrentTool == UiManager.Tool.SPONGE)
         {
@@ -38,7 +37,7 @@ public class Sponge : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-    }*/
+    }
 
     private void Update()
     {

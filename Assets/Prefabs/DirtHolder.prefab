@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentCleanStatus: -1
+  yPosUpperLimit: 0.542
+  yPosLowerLimit: 0.351
 --- !u!65 &626352913489382115
 BoxCollider:
   m_ObjectHideFlags: 0
