@@ -67,5 +67,6 @@ public class Duck : MonoBehaviour
     public void Spin()
     {
         _animator.SetTrigger("Spin");
+        EffectsManager.Instance.SpawnSparkles(transform.position + Vector3.forward * 2f);
     }
 }
