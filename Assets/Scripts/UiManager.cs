@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class UiManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class UiManager : MonoBehaviour
     public Tool CurrentTool { get; private set; }
 
     public event EventHandler OnToolChanged;
+
+    [SerializeField] private TextMeshProUGUI _scoreText;
 
     private void Awake()
     {
@@ -40,6 +43,11 @@ public class UiManager : MonoBehaviour
     {
         CurrentTool = Tool.BUBBLE;
         OnToolChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void UpdateScoreDistance(int score)
+    {
+        _scoreText.text = "Distance : " + score;
     }
 
 }

@@ -11,8 +11,7 @@ public class Duck : MonoBehaviour
     [SerializeField] private GameObject _baseModel;
     [SerializeField] private GameObject _bonusModel;
 
-
-    //Debug 
+    // Pas debug en fait, on en a vraiment besoin 
     private Vector3 _basePos;
 
     private void Awake()
@@ -52,6 +51,7 @@ public class Duck : MonoBehaviour
         {
             transform.position = _basePos;
         }
+        UiManager.Instance.UpdateScoreDistance((int)(transform.position.z - _basePos.z));
     }
 
     private void Propulse()

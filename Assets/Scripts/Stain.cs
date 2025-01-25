@@ -48,6 +48,7 @@ public class Stain : MonoBehaviour
             if (_currentCleanStatus >= 0.9f)
             {
                 IsCleaned = true;
+                dirtTransform.gameObject.SetActive(false);
             }
         }
     }
