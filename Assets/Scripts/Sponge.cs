@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Sponge : MonoBehaviour
 {
+    [SerializeField]
+    private float cleanFactor = 0.02f;
     private Camera mainCamera;
     private float cameraZDistance;
     private Vector3 lastPos;
@@ -9,6 +11,8 @@ public class Sponge : MonoBehaviour
     private float _soapLevel = 1f;
 
     private Bloc bloc;
+    [SerializeField]
+    private float soapLevelStep = 0.02f;
 
     private void Start()
     {
@@ -28,12 +32,20 @@ public class Sponge : MonoBehaviour
         {
             CleanStain();
         }
+
+        //Partie debug, a enlever apres
+        if (Input.GetKeyDown(KeyCode.LeftControl)) 
+        {
+            ReloadSponge(0.6f);
+        }
+        
     }
 
     private void CleanStain()
     {
-        bloc.CleanStain(0.02f);
-        _soapLevel -= 0.01f;
+        float normalizedTimedFactor = Mathf.Clamp(cleanFactor + Time.deltaTime, -1, 1);
+        bloc.CleanStain(normalizedTimedFactor);
+        _soapLevel -= soapLevelStep;
         Debug.Log("Soap level in sponge : " + _soapLevel);
     }
     
@@ -52,5 +64,10 @@ public class Sponge : MonoBehaviour
         {
             bloc = null;
         }
+    }
+
+    public void ReloadSponge(float normalizedAmount)
+    {
+        _soapLevel += normalizedAmount;
     }
 }
