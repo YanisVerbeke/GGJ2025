@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject _floor2;
     [SerializeField] private Duck _duck;
     [SerializeField] private GameObject _stainPrefab;
+    [SerializeField] private float distanceOfSpawn;
 
     private float _floorOffset = 64.6f;
 
@@ -31,7 +32,7 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnStain()
     {
-        Vector3 position = new Vector3(_duck.transform.position.x + Random.Range(-3f, 3f),0 , _duck.transform.position.z + 20);
+        Vector3 position = new Vector3(_duck.transform.position.x + Random.Range(-3f, 3f),0 , _duck.transform.position.z + distanceOfSpawn);
         Instantiate(_stainPrefab, position, Quaternion.identity);
         _nextSpawnPosition = _duck.transform.position.z + Random.Range(10f, 25f);
     }

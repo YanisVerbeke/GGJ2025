@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Stain : MonoBehaviour
@@ -9,13 +10,17 @@ public class Stain : MonoBehaviour
     [SerializeField] private float yPosLowerLimit;
     [SerializeField] List<GameObject> dirtModels;
     [SerializeField] List<Material> dirtTextures;
+    [SerializeField] private float minStainCleanness;
+    [SerializeField] private float maxStainCleanness;
     private Transform dirtTransform;
     private GameObject cleanEffect;
     public bool IsCleaned { get; private set; }
 
 
+
     public void Start()
     {
+        _currentCleanStatus = Random.Range(minStainCleanness, maxStainCleanness);
         GameObject dirtModel = dirtModels[Random.Range(0, maxExclusive:dirtModels.Count)];
         dirtTransform = Instantiate(dirtModel, transform).transform;
         MeshRenderer dirtRenderer = dirtTransform.GetComponent<MeshRenderer>();
@@ -45,7 +50,7 @@ public class Stain : MonoBehaviour
             {
                 cleanEffect.SetActive(true);
             }
-            if (_currentCleanStatus >= 0.9f)
+            if (_currentCleanStatus >= 0.85f)
             {
                 IsCleaned = true;
             }
@@ -64,6 +69,7 @@ public class Stain : MonoBehaviour
     {
         if (other.GetComponent<Duck>() != null && IsCleaned)
         {
+            Debug.Log("Boost!");
             other.GetComponent<Duck>().Spin();
         }
     }
