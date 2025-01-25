@@ -13,8 +13,7 @@ public class Duck : MonoBehaviour
     [SerializeField] private GameObject _bonusModel;
     private bool isAlive = true;
     private bool haveStarted = false;
-
-    //Debug 
+    // Pas debug en fait, on en a vraiment besoin 
     private Vector3 _basePos;
 
     private void Awake()
@@ -65,6 +64,12 @@ public class Duck : MonoBehaviour
         {
             _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, _rigidbody.linearVelocity.y, _maxSpeed);
         }
+        //Debug code, reset la position du canard a l'origine
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = _basePos;
+        }
+        UiManager.Instance.UpdateScoreDistance((int)(transform.position.z - _basePos.z));
     }
 
     private void Propulse()
@@ -88,5 +93,6 @@ public class Duck : MonoBehaviour
         _animator.SetTrigger("Spin");
         _maxSpeed += maxSpeedSpinIncrease;
         stainForce += stainForceSpinIncrease;
+        EffectsManager.Instance.SpawnSparkles(transform.position + Vector3.forward * 2f);
     }
 }

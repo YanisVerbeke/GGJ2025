@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Sponge : MonoBehaviour
 {
+    private const float MAX_SOAP_LEVEL = 1f;
+
     [SerializeField] private float cleaningAmount = 2f;
     [SerializeField] private float _soapConsumption = 0.2f;
     private Camera mainCamera;
@@ -9,6 +11,7 @@ public class Sponge : MonoBehaviour
     private Vector3 lastPos;
 
     private float _soapLevel = 1f;
+    
 
     private Stain _stain;
 
@@ -77,6 +80,16 @@ public class Sponge : MonoBehaviour
     public void ReloadSponge(float reloadAmount)
     {
         _soapLevel = Mathf.Clamp(_soapLevel + (reloadAmount * Time.deltaTime), 0, 1);
+    }
+
+    public bool GetIsSoapFull()
+    {
+        return _soapLevel >= MAX_SOAP_LEVEL;
+    }
+
+    public float GetSoapLevel()
+    {
+        return _soapLevel;
     }
 
     private void OnTriggerEnter(Collider other)
