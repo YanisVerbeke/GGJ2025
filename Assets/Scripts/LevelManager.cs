@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnStain()
     {
-        Vector3 position = new Vector3(_duck.transform.position.x + Random.Range(-3f, 3f), _duck.transform.position.y, _duck.transform.position.z + 20);
+        Vector3 position = new Vector3(_duck.transform.position.x + Random.Range(-3f, 3f),0 , _duck.transform.position.z + 20);
         Instantiate(_stainPrefab, position, Quaternion.identity);
         _nextSpawnPosition = _duck.transform.position.z + Random.Range(10f, 25f);
     }
