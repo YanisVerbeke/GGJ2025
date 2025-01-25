@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soapQuantityNormalized: 0
-  _bubblesParticules: {fileID: 2176415416951980695}
+  _littleBubblesParticules: {fileID: 2176415416951980695}
+  _bigBubblesParticules: {fileID: 1602331797707961660}
   _foamParticules: {fileID: 5173269026942717229}
   maxBubbles: 40
   maxFoam: 200

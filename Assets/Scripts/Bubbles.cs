@@ -61,6 +61,10 @@ public class Bubbles : MonoBehaviour
         {
             _foamParticules.Play();
         }
+        if (!_bigBubblesParticules.isPlaying)
+        {
+            _bigBubblesParticules.Play();
+        }
     }
 
     public void Stop()
@@ -68,6 +72,7 @@ public class Bubbles : MonoBehaviour
         if (_activeTimer <= 0)
         {
             _littleBubblesParticules.Stop();
+            _bigBubblesParticules.Stop();
             _foamParticules.Stop();
         }
     }
