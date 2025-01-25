@@ -13,6 +13,11 @@ public class Stain : MonoBehaviour
 
     }
 
+    public void Start()
+    {
+        CleanStain(0);
+    }
+
     public void CleanStain(float cleaningAmount)
     {
         _currentCleanStatus = Mathf.Clamp(_currentCleanStatus + (cleaningAmount * Time.deltaTime), -1f, 1f);

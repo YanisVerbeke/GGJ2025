@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soapQuantityNormalized: 0
-  _bubblesParticules: {fileID: 2176415416951980695}
+  _littleBubblesParticules: {fileID: 0}
+  _bigBubblesParticules: {fileID: 2176415416951980695}
   _foamParticules: {fileID: 5173269026942717229}
   maxBubbles: 40
   maxFoam: 200
@@ -64,6 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ffaec688aee8c499152679b48757c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cleaningAmount: 2
+  _soapConsumption: 0.2
 --- !u!1 &3196833068618816950
 GameObject:
   m_ObjectHideFlags: 0
