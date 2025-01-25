@@ -68,7 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ffaec688aee8c499152679b48757c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cleaningAmount: 0.5
+  cleaningAmount: 4
+  _soapConsumption: 0.2
 --- !u!54 &4606518727350691620
 Rigidbody:
   m_ObjectHideFlags: 0
