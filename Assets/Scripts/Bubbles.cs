@@ -6,7 +6,7 @@ public class Bubbles : MonoBehaviour
     [Range(0, 1)]
     float soapQuantityNormalized;
 
-    [SerializeField] 
+    [SerializeField]
     ParticleSystem _bubblesParticules;
     [SerializeField]
     ParticleSystem _foamParticules;
@@ -16,16 +16,50 @@ public class Bubbles : MonoBehaviour
     [SerializeField]
     int maxFoam = 0;
 
+    private float _activeTimer = 0f;
+
     private void Start()
     {
-        _bubblesParticules.maxParticles = maxBubbles;
-        _foamParticules.maxParticles = maxFoam;
+        ParticleSystem.MainModule bubbleMain = _bubblesParticules.main;
+        bubbleMain.maxParticles = maxBubbles;
+        ParticleSystem.MainModule foamMain = _foamParticules.main;
+        foamMain.maxParticles = maxFoam;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        _bubblesParticules.emissionRate = (int) (soapQuantityNormalized * maxBubbles);
-        _foamParticules.emissionRate = (int)(soapQuantityNormalized * maxFoam);
+        _activeTimer -= Time.deltaTime;
+    }
+
+    public void UpdateBubbleAmount(float amount)
+    {
+        soapQuantityNormalized = amount;
+
+        ParticleSystem.EmissionModule bubbleEmission = _bubblesParticules.emission;
+        bubbleEmission.rateOverTime = (soapQuantityNormalized * maxBubbles);
+        ParticleSystem.EmissionModule foamEmission = _foamParticules.emission;
+        foamEmission.rateOverTime = (soapQuantityNormalized * maxFoam);
+    }
+
+    public void Play()
+    {
+        _activeTimer = 0.2f;
+        if (!_bubblesParticules.isPlaying)
+        {
+            _bubblesParticules.Play();
+        }
+        if (!_foamParticules.isPlaying)
+        {
+            _foamParticules.Play();
+        }
+    }
+
+    public void Stop()
+    {
+        if (_activeTimer <= 0)
+        {
+            _bubblesParticules.Stop();
+            _foamParticules.Stop();
+        }
     }
 }

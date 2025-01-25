@@ -5,14 +5,14 @@ public class SoapBottle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     private bool _isMouseOver = false;
     [SerializeField] private Sponge _sponge;
-    [SerializeField] private float _reloadStep = 1f;
+    private float _reloadAmount = 1f;
 
 
     private void Update()
     {
         if (_isMouseOver)
         {
-            _sponge.ReloadSponge(_reloadStep * Time.deltaTime);
+            _sponge.ReloadSponge(_reloadAmount);
         }
     }
 

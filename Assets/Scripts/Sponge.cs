@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class Sponge : MonoBehaviour
 {
-    [SerializeField]
-    private float cleanFactor = 2f;
+    private float cleaningAmount = 2f;
     private Camera mainCamera;
     private float cameraZDistance;
     private Vector3 lastPos;
 
     private float _soapLevel = 1f;
 
-    private Bloc bloc;
-    [SerializeField]
-    private float soapLevelStep = 1f;
+    private Stain _stain;
+    private float _soapConsumption = 0.4f;
 
+    private Bubbles _bubbles;
 
+    private void Awake()
+    {
+        _bubbles = GetComponentInChildren<Bubbles>();
+    }
 
     private void Start()
     {
@@ -43,45 +46,49 @@ public class Sponge : MonoBehaviour
         Vector3 newPos = mainCamera.ScreenToWorldPoint(screenPosition);
         transform.position = new Vector3(newPos.x, 1, newPos.z);
 
-        if (lastPos != transform.position && bloc != null && _soapLevel > 0)
+        if (lastPos != transform.position && _stain != null && _soapLevel > 0)
         {
             CleanStain();
+            _bubbles.Play();
         }
+        else
+        {
+            _bubbles.Stop();
+        }
+
+        _bubbles.UpdateBubbleAmount(_soapLevel);
 
         //Partie debug, a enlever apres
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             ReloadSponge(0.6f);
         }
-
     }
 
     private void CleanStain()
     {
-        float normalizedTimedFactor = Mathf.Clamp(cleanFactor * Time.deltaTime, -1, 1);
-        bloc.CleanStain(normalizedTimedFactor);
-        _soapLevel -= soapLevelStep * Time.deltaTime;
+        _stain.CleanStain(cleaningAmount);
+        _soapLevel = Mathf.Clamp(_soapLevel - (_soapConsumption * Time.deltaTime), 0, 1);
     }
 
+    public void ReloadSponge(float reloadAmount)
+    {
+        _soapLevel = Mathf.Clamp(_soapLevel + (reloadAmount * Time.deltaTime), 0, 1);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Bloc>())
+        if (other.GetComponent<Stain>())
         {
-            bloc = other.GetComponent<Bloc>();
+            _stain = other.GetComponent<Stain>();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Bloc>())
+        if (other.GetComponent<Stain>())
         {
-            bloc = null;
+            _stain = null;
         }
-    }
-
-    public void ReloadSponge(float normalizedAmount)
-    {
-        _soapLevel = Mathf.Clamp(_soapLevel + normalizedAmount, 0, 1);
     }
 }

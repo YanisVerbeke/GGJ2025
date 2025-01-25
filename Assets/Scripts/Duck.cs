@@ -5,7 +5,7 @@ using UnityEngine;
 public class Duck : MonoBehaviour
 {
     private Rigidbody _rigidbody;
-    [SerializeField] private float _force = 1;
+    [SerializeField] private float _propulseForce = 20;
     private Vector3 _basePos;
 
     private void Awake()
@@ -32,7 +32,7 @@ public class Duck : MonoBehaviour
 
     private void Propulse()
     {
-        _rigidbody.AddForce(Vector3.forward * _force, ForceMode.Impulse);
+        _rigidbody.AddForce(Vector3.forward * _propulseForce, ForceMode.Impulse);
     }
 
     public void ChangeSpeed(float factorNormalized)
