@@ -838,17 +838,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 195677049129328337, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: ShapeModule.type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195677049129328337, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195677049129328337, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195677049129328337, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: ShapeModule.donutRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195677049129328337, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 195677049129328337, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553593063804864065, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: maxBubbles
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553593063804864065, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: maxLittleBubbles
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1553593063804864065, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
       propertyPath: _littleBubblesParticules
       value: 
-      objectReference: {fileID: 1238070490}
+      objectReference: {fileID: 679361597}
     - target: {fileID: 5666423793091968949, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5666423793091968949, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.78
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5666423793091968949, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -886,11 +918,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpongeHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6312215990917729378, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6577548704245617003, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+--- !u!198 &679361597 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6577548704245617003, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+  m_PrefabInstance: {fileID: 627545025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &707504353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,11 +2136,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075757276}
   m_CullTransparentMesh: 1
---- !u!198 &1238070490 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2176415416951980695, guid: 65b1188901921254bbe6ed034d7cf494, type: 3}
-  m_PrefabInstance: {fileID: 1437553706}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1243910105
 GameObject:
   m_ObjectHideFlags: 0
