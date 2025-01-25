@@ -43,12 +43,9 @@ public class Bubbles : MonoBehaviour
         soapQuantityNormalized = amount;
 
         ParticleSystem.EmissionModule littleBubbleEmission = _littleBubblesParticules.emission;
-        ParticleSystem.EmissionModule bigBubbleEmission = _bigBubblesParticules.emission;
-
-        //littleBubbleEmission.rateOverTime = soapQuantityNormalized * maxBubbles;
-        bigBubbleEmission.rateOverTime = soapQuantityNormalized * maxBubbles;
-
         littleBubbleEmission.rateOverTime = soapQuantityNormalized * maxLittleBubbles;
+        ParticleSystem.EmissionModule bigBubbleEmission = _bigBubblesParticules.emission;
+        bigBubbleEmission.rateOverTime = soapQuantityNormalized * maxBubbles;
 
         ParticleSystem.EmissionModule foamEmission = _foamParticules.emission;
         foamEmission.rateOverTime = soapQuantityNormalized * maxFoam;

@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 3197915062463348345}
   - component: {fileID: 7791920199279848331}
   - component: {fileID: 7653097890332751026}
+  - component: {fileID: 2606481702543123800}
   m_Layer: 0
   m_Name: DuckHolder
   m_TagString: Untagged
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _propulseForce: 10
   stainForce: 1.5
-  _maxSpeed: 12
+  _maxSpeed: 15
   _baseModel: {fileID: 3354199050041912081}
   _bonusModel: {fileID: 6539803344081814038}
 --- !u!54 &7791920199279848331
@@ -239,6 +240,28 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0.83, z: 0}
+--- !u!95 &2606481702543123800
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6483353040087941155}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 463e068866474f448a20c9e79223aa19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2471890783460808256
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Duck : MonoBehaviour
 {
     private Rigidbody _rigidbody;
+    private Animator _animator;
     [SerializeField] private float _propulseForce = 20;
     [SerializeField] private float stainForce = 2;
     [SerializeField] private float _maxSpeed;
@@ -10,12 +11,14 @@ public class Duck : MonoBehaviour
     [SerializeField] private GameObject _baseModel;
     [SerializeField] private GameObject _bonusModel;
 
+
     //Debug 
     private Vector3 _basePos;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
         _basePos = transform.position;
 
         if (Random.Range(0, 20) == 0)
@@ -59,5 +62,10 @@ public class Duck : MonoBehaviour
     public void ChangeSpeed(float factorNormalized)
     {
         _rigidbody.AddForce(factorNormalized * _rigidbody.linearVelocity * stainForce, ForceMode.Acceleration);
+    }
+
+    public void Spin()
+    {
+        _animator.SetTrigger("Spin");
     }
 }
