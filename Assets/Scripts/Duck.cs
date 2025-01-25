@@ -6,6 +6,10 @@ public class Duck : MonoBehaviour
     [SerializeField] private float _propulseForce = 20;
     [SerializeField] private float stainForce = 2;
     [SerializeField] private float _maxSpeed;
+
+    [SerializeField] private GameObject _baseModel;
+    [SerializeField] private GameObject _bonusModel;
+
     //Debug 
     private Vector3 _basePos;
 
@@ -13,6 +17,17 @@ public class Duck : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _basePos = transform.position;
+
+        if (Random.Range(0, 20) == 0)
+        {
+            _baseModel.SetActive(false);
+            _bonusModel.SetActive(true);
+        }
+        else
+        {
+            _bonusModel.SetActive(false);
+            _baseModel.SetActive(true);
+        }
     }
 
     private void Update()
