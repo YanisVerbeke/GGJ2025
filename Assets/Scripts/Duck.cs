@@ -1,11 +1,11 @@
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Duck : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     [SerializeField] private float _propulseForce = 20;
+    [SerializeField] private float stainForce = 2;
+    //Debug 
     private Vector3 _basePos;
 
     private void Awake()
@@ -23,7 +23,7 @@ public class Duck : MonoBehaviour
                 Propulse();
             }
         }
-
+        //Debug code, reset la position du canard a l'origine
         if (Input.GetKeyDown(KeyCode.E))
         {
             transform.position = _basePos;
@@ -37,6 +37,6 @@ public class Duck : MonoBehaviour
 
     public void ChangeSpeed(float factorNormalized)
     {
-        _rigidbody.AddForce(factorNormalized * _rigidbody.linearVelocity * 5, ForceMode.Acceleration);
+        _rigidbody.AddForce(factorNormalized * _rigidbody.linearVelocity * stainForce, ForceMode.Acceleration);
     }
 }

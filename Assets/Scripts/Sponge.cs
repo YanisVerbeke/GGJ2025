@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Sponge : MonoBehaviour
 {
-    private float cleaningAmount = 2f;
+    [SerializeField] private float cleaningAmount = 2f;
+    [SerializeField] private float _soapConsumption = 0.2f;
     private Camera mainCamera;
     private float cameraZDistance;
     private Vector3 lastPos;
@@ -10,7 +11,6 @@ public class Sponge : MonoBehaviour
     private float _soapLevel = 1f;
 
     private Stain _stain;
-    private float _soapConsumption = 0.4f;
 
     private Bubbles _bubbles;
 
@@ -44,7 +44,7 @@ public class Sponge : MonoBehaviour
         lastPos = transform.position;
         Vector3 screenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraZDistance);
         Vector3 newPos = mainCamera.ScreenToWorldPoint(screenPosition);
-        transform.position = new Vector3(newPos.x, 1, newPos.z);
+        transform.position = new Vector3(newPos.x, 0, newPos.z);
 
         if (lastPos != transform.position && _stain != null && _soapLevel > 0)
         {
