@@ -70,12 +70,22 @@ public class MainMenu : MonoBehaviour
         if (isCredit)
         {
             menu.alpha = 0;
+            menu.blocksRaycasts = false;
+            menu.interactable = false;
+
             credits.alpha = 1;
+            credits.blocksRaycasts = true;
+            credits.interactable = true;
         }
         else
         {
             menu.alpha = 1;
+            menu.blocksRaycasts = true;
+            menu.interactable = true;
+
             credits.alpha = 0;
+            credits.blocksRaycasts = false;
+            credits.interactable = false;
         }
 
        
