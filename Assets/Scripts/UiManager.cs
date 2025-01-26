@@ -60,10 +60,22 @@ public class UiManager : MonoBehaviour
 
     public void RestartButton()
     {
+        SfxManager.Instance.PlaySqueakSfx();
+        Invoke("LoadGame", 0.5f);
+    }
+
+    private void LoadGame()
+    {
         SceneManager.LoadScene(0);
     }
 
     public void MenuButton()
+    {
+        SfxManager.Instance.PlaySqueakSfx();
+        Invoke("LoadMenu", 0.5f);
+    }
+
+    private void LoadMenu()
     {
         SceneManager.LoadScene(1);
     }

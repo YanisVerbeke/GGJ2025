@@ -28,11 +28,13 @@ public class Duck : MonoBehaviour
         {
             _baseModel.SetActive(false);
             _bonusModel.SetActive(true);
+            SfxManager.Instance.Bidoof = true;
         }
         else
         {
             _bonusModel.SetActive(false);
             _baseModel.SetActive(true);
+            SfxManager.Instance.Bidoof = false;
         }
     }
 
@@ -94,6 +96,7 @@ public class Duck : MonoBehaviour
 
     public void Spin()
     {
+        SfxManager.Instance.PlayDuckSpinSfx();
         _animator.SetTrigger("Spin");
         EffectsManager.Instance.SpawnSparkles(transform.position + Vector3.forward * 2f);
         LevelManager.Instance.AddCombo();
@@ -109,5 +112,10 @@ public class Duck : MonoBehaviour
     {
         _maxSpeed += maxSpeedDifficultyStep;
         stainForce += stainForceDifficultyStep;
+    }
+
+    private void OnMouseDown()
+    {
+        SfxManager.Instance.PlayDuckQuackSfx();
     }
 }

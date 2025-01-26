@@ -73,12 +73,14 @@ public class Sponge : MonoBehaviour
 
     private void CleanStain()
     {
+        SfxManager.Instance.PlaySpongeSfx();
         _stain.CleanStain(cleaningAmount);
         _soapLevel = Mathf.Clamp(_soapLevel - (_soapConsumption * Time.deltaTime), 0, 1);
     }
 
     public void ReloadSponge(float reloadAmount)
     {
+        SfxManager.Instance.PlaySoapRefillSfx();
         _soapLevel = Mathf.Clamp(_soapLevel + (reloadAmount * Time.deltaTime), 0, 1);
     }
 
