@@ -59,6 +59,7 @@ public class Stain : MonoBehaviour
                 dirtTransform.gameObject.SetActive(false);
                 if (!_effectLaunched)
                 {
+                    SfxManager.Instance.PlayStainCleanedSfx();
                     EffectsManager.Instance.SpawnSparkles(transform.position);
                     _effectLaunched = true;
                 }
