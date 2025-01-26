@@ -74,7 +74,7 @@ public class UiManager : MonoBehaviour
 
     private void LoadGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void MenuButton()
@@ -85,7 +85,7 @@ public class UiManager : MonoBehaviour
 
     private void LoadMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void SetEndScreenVisibility(bool active)
