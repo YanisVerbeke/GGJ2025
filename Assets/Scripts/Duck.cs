@@ -4,7 +4,8 @@ public class Duck : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     private Animator _animator;
-    [SerializeField] private float _propulseForce = 20;
+    [SerializeField] private float _maxPropulseForce = 20;
+    [SerializeField] private float _propulseForce;
     [SerializeField] private float stainForce = 2;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float maxSpeedSpinIncrease;
@@ -39,16 +40,10 @@ public class Duck : MonoBehaviour
 
     private void Update()
     {
-
         //Debug code, reset la position du canard a l'origine
         if (Input.GetKeyDown(KeyCode.E))
         {
             transform.position = _basePos;
-        }
-
-        if (Input.GetButtonDown("Jump") && !haveStarted)
-        {
-            _startPressed = true;
         }
     }
 
@@ -107,6 +102,16 @@ public class Duck : MonoBehaviour
         _maxSpeed += maxSpeedSpinIncrease;
         stainForce += stainForceSpinIncrease;
         EffectsManager.Instance.SpawnSparkles(transform.position + Vector3.forward * 2f);
+    }
+
+    public void StartGame(float propulsionForce)
+    {
+        if (!haveStarted)
+        {
+            _startPressed = true;
+            _propulseForce = propulsionForce * _maxPropulseForce;
+        }
+        
     }
 
     private void OnMouseDown()
