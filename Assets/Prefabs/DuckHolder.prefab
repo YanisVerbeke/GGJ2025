@@ -5035,10 +5035,11 @@ MonoBehaviour:
   _propulseForce: 25
   stainForce: 1.7
   _maxSpeed: 12
-  maxSpeedSpinIncrease: 0.5
-  stainForceSpinIncrease: 0.1
+  maxSpeedDifficultyStep: 2
+  stainForceDifficultyStep: 0.2
   _baseModel: {fileID: 3354199050041912081}
   _bonusModel: {fileID: 6539803344081814038}
+  deadzone: 0.35
 --- !u!54 &7791920199279848331
 Rigidbody:
   m_ObjectHideFlags: 0
