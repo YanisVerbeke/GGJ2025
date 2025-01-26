@@ -1019,14 +1019,6 @@ PrefabInstance:
       propertyPath: _sponge
       value: 
       objectReference: {fileID: 1544495290}
-    - target: {fileID: 1403303652722034130, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3571216325538076182, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
-      propertyPath: _duck
-      value: 
-      objectReference: {fileID: 2106366307}
     - target: {fileID: 4759692799493272571, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1122,10 +1114,6 @@ PrefabInstance:
     - target: {fileID: 8855081437856403615, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
       propertyPath: m_Name
       value: Ui-Toolbar
-      objectReference: {fileID: 0}
-    - target: {fileID: 8999530187314889077, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
