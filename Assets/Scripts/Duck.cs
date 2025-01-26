@@ -59,7 +59,6 @@ public class Duck : MonoBehaviour
             isAlive = false;
             _rigidbody.linearVelocity = Vector3.zero;
             UiManager.Instance.SetEndScreenVisibility(true);
-            Debug.Log("DEAD!");
         }
         if (_startPressed)
         {

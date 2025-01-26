@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpongeHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 5757809499749973392, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -574,6 +578,18 @@ PrefabInstance:
       propertyPath: _sponge
       value: 
       objectReference: {fileID: 1544495290}
+    - target: {fileID: 3091307336799732718, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599348392791240250, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117888494565710031, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4786399778563421767, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -653,6 +669,18 @@ PrefabInstance:
     - target: {fileID: 4786399778563421767, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061116653449085532, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492670476083433529, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910099983126262415, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8855081437856403615, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
       propertyPath: m_Name
@@ -1441,6 +1469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DuckHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6483353040087941155, guid: 4f5dfc700ab2789fbb493e127605576e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1457,6 +1489,10 @@ PrefabInstance:
     - target: {fileID: 857875132841152672, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
       propertyPath: m_Name
       value: DirtHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 857875132841152672, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7168755305516260095, guid: 6579905c71daa4f3b9f8cb62e1d42917, type: 3}
       propertyPath: m_LocalPosition.x
