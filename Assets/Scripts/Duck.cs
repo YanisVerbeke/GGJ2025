@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class Duck : MonoBehaviour
@@ -20,6 +21,8 @@ public class Duck : MonoBehaviour
     private ParticleSystem _bubbles1;
     private ParticleSystem _bubbles2;
     private float _bubblesTimer;
+    [SerializeField] private float timeBeforeSpeedLimit;
+    private float timer;
 
     [SerializeField] private float deadzone;
     private Vector3 previousPos;
@@ -32,6 +35,7 @@ public class Duck : MonoBehaviour
         _bubbles2 = GetComponentsInChildren<ParticleSystem>()[1];
         _basePos = transform.position;
         previousPos = transform.position;
+        timer = timeBeforeSpeedLimit;
 
         //Le jeu casse completement sans ce code, on sait pas pourquoi
         if (Random.Range(0, 20) == 0)
@@ -86,6 +90,8 @@ public class Duck : MonoBehaviour
             _startPressed = true;
         }
         scoreUpdateTimer -= Time.deltaTime;
+        timer -= Time.deltaTime;
+        
         if(scoreUpdateTimer <= 0)
         {
             Calculatescore(previousPos.z);
@@ -109,10 +115,11 @@ public class Duck : MonoBehaviour
                 Propulse();
                 haveStarted = true;
                 _startPressed = false;
+                timer = timeBeforeSpeedLimit;
             }
         }
 
-        if (_rigidbody.linearVelocity.z > _maxSpeed)
+        if (_rigidbody.linearVelocity.z > _maxSpeed && timer <= 0)
         {
             _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, _rigidbody.linearVelocity.y, _maxSpeed);
         }

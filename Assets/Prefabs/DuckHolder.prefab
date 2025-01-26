@@ -5032,13 +5032,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513dacb6d7796e94c85d4b01e30fd0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _propulseForce: 25
+  _maxPropulseForce: 35
+  _propulseForce: 20
   stainForce: 1.7
   _maxSpeed: 12
   maxSpeedDifficultyStep: 2
   stainForceDifficultyStep: 0.2
   _baseModel: {fileID: 3354199050041912081}
   _bonusModel: {fileID: 6539803344081814038}
+  timeBeforeSpeedLimit: 5
   deadzone: 0.35
 --- !u!54 &7791920199279848331
 Rigidbody:
