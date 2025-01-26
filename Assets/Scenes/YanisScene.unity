@@ -658,10 +658,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8754440306446839539, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
     - target: {fileID: 8855081437856403615, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
       propertyPath: m_Name
       value: Ui-Toolbar
       objectReference: {fileID: 0}
+    - target: {fileID: 8929359614927453429, guid: 4a413e689336ee141a8ec11ea40a8fc3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
