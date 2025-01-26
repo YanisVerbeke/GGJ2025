@@ -7,22 +7,23 @@ public class Duck : MonoBehaviour
     [SerializeField] private float _propulseForce = 20;
     [SerializeField] private float stainForce = 2;
     [SerializeField] private float _maxSpeed;
-    [SerializeField] private float maxSpeedSpinIncrease;
-    [SerializeField] private float stainForceSpinIncrease;
+    [SerializeField] private float maxSpeedDifficultyStep;
+    [SerializeField] private float stainForceDifficultyStep;
     [SerializeField] private GameObject _baseModel;
     [SerializeField] private GameObject _bonusModel;
     private bool isAlive = true;
     private bool haveStarted = false;
     private bool _startPressed = false;
-    // Pas debug en fait, on en a vraiment besoin 
-    private Vector3 _basePos;
-
+    [SerializeField] private float deadzone;
+    private Vector3 previousPos;
+    private float scoreUpdateTimer = 0.3f;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
-        _basePos = transform.position;
+        previousPos = transform.position;
 
+        //Le jeu casse completement sans ce code, on sait pas pourquoi
         if (Random.Range(0, 20) == 0)
         {
             _baseModel.SetActive(false);
@@ -39,16 +40,15 @@ public class Duck : MonoBehaviour
 
     private void Update()
     {
-
-        //Debug code, reset la position du canard a l'origine
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            transform.position = _basePos;
-        }
-
         if (Input.GetButtonDown("Jump") && !haveStarted)
         {
             _startPressed = true;
+        }
+        scoreUpdateTimer -= Time.deltaTime;
+        if(scoreUpdateTimer <= 0)
+        {
+            Calculatescore(previousPos.z);
+            scoreUpdateTimer = 0.3f;
         }
     }
 
@@ -75,12 +75,7 @@ public class Duck : MonoBehaviour
         {
             _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, _rigidbody.linearVelocity.y, _maxSpeed);
         }
-        //Debug code, reset la position du canard a l'origine
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            transform.position = _basePos;
-        }
-        UiManager.Instance.UpdateScoreDistance((int)(transform.position.z - _basePos.z));
+        
     }
 
     private void Propulse()
@@ -103,9 +98,20 @@ public class Duck : MonoBehaviour
     {
         SfxManager.Instance.PlayDuckSpinSfx();
         _animator.SetTrigger("Spin");
-        _maxSpeed += maxSpeedSpinIncrease;
-        stainForce += stainForceSpinIncrease;
         EffectsManager.Instance.SpawnSparkles(transform.position + Vector3.forward * 2f);
+        LevelManager.Instance.AddCombo();
+    }
+
+    private void Calculatescore(float previousPos)
+    {
+        LevelManager.Instance.AddScore((int)Mathf.Floor(transform.position.z - previousPos));
+        this.previousPos = transform.position;
+    }
+
+    public void DifficultyIncrease()
+    {
+        _maxSpeed += maxSpeedDifficultyStep;
+        stainForce += stainForceDifficultyStep;
     }
 
     private void OnMouseDown()

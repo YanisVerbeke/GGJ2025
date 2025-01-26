@@ -58,12 +58,29 @@ public class UiManager : MonoBehaviour
         _scoreText.text = "Distance : " + score;
     }
 
+    public void UpdateComboDisplay(float multiplier)
+    {
+        TextMeshProUGUI multiplierText = Instance.transform.Find("ScoreContainer").transform.Find("MultiplierText").GetComponent<TextMeshProUGUI>();
+        multiplierText.text = "X" + multiplier;
+    }
     public void RestartButton()
+    {
+        SfxManager.Instance.PlaySqueakSfx();
+        Invoke("LoadGame", 0.5f);
+    }
+
+    private void LoadGame()
     {
         SceneManager.LoadScene(0);
     }
 
     public void MenuButton()
+    {
+        SfxManager.Instance.PlaySqueakSfx();
+        Invoke("LoadMenu", 0.5f);
+    }
+
+    private void LoadMenu()
     {
         SceneManager.LoadScene(1);
     }
