@@ -327,6 +327,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &608719804
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415475289250809489, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627681168165619172, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
+      propertyPath: m_Name
+      value: SfxManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3faae4d4681e1c443b6a3a3edc3c406d, type: 3}
 --- !u!1001 &627545025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,7 +526,7 @@ MonoBehaviour:
   distanceOfSpawn: 40
   comboDuration: 5
   comboStep: 0.2
-  difficultyStep: 500
+  difficultyStep: 150
   difficulty: 0
 --- !u!4 &935835835
 Transform:
@@ -921,14 +978,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3197915062463348345, guid: 4f5dfc700ab2789fbb493e127605576e, type: 3}
-      propertyPath: maxSpeedDifficultyStep
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3197915062463348345, guid: 4f5dfc700ab2789fbb493e127605576e, type: 3}
-      propertyPath: stainForceDifficultyStep
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6483353040087941155, guid: 4f5dfc700ab2789fbb493e127605576e, type: 3}
       propertyPath: m_Name
       value: DuckHolder
@@ -1187,3 +1236,4 @@ SceneRoots:
   - {fileID: 1623815366}
   - {fileID: 1501391123}
   - {fileID: 1976270103}
+  - {fileID: 608719804}

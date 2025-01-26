@@ -54,7 +54,7 @@ public class LevelManager : MonoBehaviour
         {
             comboMultiplier = 1f;
             timer = comboDuration;
-            Debug.Log("Combo perdu !");
+            UiManager.Instance.UpdateComboDisplay(1.0f);
         }
 
     }
@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour
     {
         comboMultiplier += comboStep;
         timer = comboDuration;
-        Debug.Log("Combo ! :" + comboMultiplier);
+        UiManager.Instance.UpdateComboDisplay(comboMultiplier);
     }
 
 }
