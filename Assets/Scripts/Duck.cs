@@ -16,11 +16,16 @@ public class Duck : MonoBehaviour
     private bool _startPressed = false;
     // Pas debug en fait, on en a vraiment besoin 
     private Vector3 _basePos;
+    private ParticleSystem _bubbles1;
+    private ParticleSystem _bubbles2;
+    private float _bubblesTimer;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        _bubbles1 = GetComponentsInChildren<ParticleSystem>()[0];
+        _bubbles2 = GetComponentsInChildren<ParticleSystem>()[1];
         _basePos = transform.position;
 
         if (Random.Range(0, 20) == 0)
@@ -37,8 +42,33 @@ public class Duck : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UiManager.Instance.OnUltraGigaMaxiBubblesOfDarknessDoomEnabled += UiManager_OnUltraGigaMaxiBubblesOfDarknessDoomEnabled;
+    }
+
+    private void UiManager_OnUltraGigaMaxiBubblesOfDarknessDoomEnabled(object sender, System.EventArgs e)
+    {
+        if (_bubblesTimer <= 0)
+        {
+            _bubblesTimer = 3f;
+            _bubbles1.Play();
+            _bubbles2.Play();
+        }
+    }
+
     private void Update()
     {
+        if (_bubblesTimer > 0)
+        {
+            _bubblesTimer -= Time.deltaTime;
+        }
+        else
+        {
+            _bubbles1.Stop();
+            _bubbles2.Stop();
+        }
+
 
         //Debug code, reset la position du canard a l'origine
         if (Input.GetKeyDown(KeyCode.E))
