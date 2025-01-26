@@ -169,7 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 29779480}
 --- !u!114 &29779482
 MonoBehaviour:
@@ -259,7 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 33565758}
 --- !u!114 &33565760
 MonoBehaviour:
@@ -349,7 +351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 40143949}
 --- !u!114 &40143951
 MonoBehaviour:
@@ -439,7 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 52854570}
 --- !u!114 &52854572
 MonoBehaviour:
@@ -529,7 +533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: -20
+  _maxRotate: 10
+  _angle: 2
   _image: {fileID: 99812584}
 --- !u!114 &99812586
 MonoBehaviour:
@@ -619,7 +624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 245104926}
 --- !u!114 &245104928
 MonoBehaviour:
@@ -1015,7 +1021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 547843189}
 --- !u!114 &547843191
 MonoBehaviour:
@@ -1105,7 +1112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 20
+  _maxRotate: 10
+  _angle: 2
   _image: {fileID: 633028386}
 --- !u!114 &633028388
 MonoBehaviour:
@@ -1195,7 +1203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: -20
+  _maxRotate: 10
+  _angle: 2
   _image: {fileID: 651791876}
 --- !u!114 &651791878
 MonoBehaviour:
@@ -1285,7 +1294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 699672116}
 --- !u!114 &699672118
 MonoBehaviour:
@@ -1622,7 +1632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 845883591}
 --- !u!114 &845883593
 MonoBehaviour:
@@ -1748,7 +1759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 860080109}
 --- !u!114 &860080111
 MonoBehaviour:
@@ -1913,7 +1925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 901286171}
 --- !u!114 &901286173
 MonoBehaviour:
@@ -2114,7 +2127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 1181341564}
 --- !u!114 &1181341566
 MonoBehaviour:
@@ -2204,7 +2218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 1235257555}
 --- !u!114 &1235257557
 MonoBehaviour:
@@ -2294,7 +2309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 1323111829}
 --- !u!114 &1323111831
 MonoBehaviour:
@@ -2384,7 +2400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 20
+  _maxRotate: 10
+  _angle: 2
   _image: {fileID: 1417456954}
 --- !u!114 &1417456956
 MonoBehaviour:
@@ -2566,7 +2583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 1548379115}
 --- !u!114 &1548379117
 MonoBehaviour:
@@ -3010,7 +3028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1f2cb2ad21b4bba1b402660346b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: 45
+  _maxRotate: 20
+  _angle: 5
   _image: {fileID: 2069964492}
 --- !u!114 &2069964494
 MonoBehaviour:
