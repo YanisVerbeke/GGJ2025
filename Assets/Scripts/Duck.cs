@@ -4,7 +4,8 @@ public class Duck : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     private Animator _animator;
-    [SerializeField] private float _propulseForce = 20;
+    [SerializeField] private float _maxPropulseForce = 20;
+    [SerializeField] private float _propulseForce;
     [SerializeField] private float stainForce = 2;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float maxSpeedDifficultyStep;
@@ -14,6 +15,12 @@ public class Duck : MonoBehaviour
     private bool isAlive = true;
     private bool haveStarted = false;
     private bool _startPressed = false;
+    // Pas debug en fait, on en a vraiment besoin 
+    private Vector3 _basePos;
+    private ParticleSystem _bubbles1;
+    private ParticleSystem _bubbles2;
+    private float _bubblesTimer;
+
     [SerializeField] private float deadzone;
     private Vector3 previousPos;
     private float scoreUpdateTimer = 0.3f;
@@ -21,6 +28,9 @@ public class Duck : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        _bubbles1 = GetComponentsInChildren<ParticleSystem>()[0];
+        _bubbles2 = GetComponentsInChildren<ParticleSystem>()[1];
+        _basePos = transform.position;
         previousPos = transform.position;
 
         //Le jeu casse completement sans ce code, on sait pas pourquoi
@@ -38,8 +48,39 @@ public class Duck : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UiManager.Instance.OnUltraGigaMaxiBubblesOfDarknessDoomEnabled += UiManager_OnUltraGigaMaxiBubblesOfDarknessDoomEnabled;
+    }
+
+    private void UiManager_OnUltraGigaMaxiBubblesOfDarknessDoomEnabled(object sender, System.EventArgs e)
+    {
+        if (_bubblesTimer <= 0)
+        {
+            _bubblesTimer = 3f;
+            _bubbles1.Play();
+            _bubbles2.Play();
+        }
+    }
+
     private void Update()
     {
+        if (_bubblesTimer > 0)
+        {
+            _bubblesTimer -= Time.deltaTime;
+        }
+        else
+        {
+            _bubbles1.Stop();
+            _bubbles2.Stop();
+        }
+
+        //Debug code, reset la position du canard a l'origine
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = _basePos;
+        }
+
         if (Input.GetButtonDown("Jump") && !haveStarted)
         {
             _startPressed = true;
@@ -112,6 +153,16 @@ public class Duck : MonoBehaviour
     {
         _maxSpeed += maxSpeedDifficultyStep;
         stainForce += stainForceDifficultyStep;
+    }
+
+    public void StartGame(float propulsionForce)
+    {
+        if (!haveStarted)
+        {
+            _startPressed = true;
+            _propulseForce = propulsionForce * _maxPropulseForce;
+        }
+        
     }
 
     private void OnMouseDown()

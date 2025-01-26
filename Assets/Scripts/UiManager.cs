@@ -16,6 +16,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private GameObject _startText;
 
+    public event EventHandler OnUltraGigaMaxiBubblesOfDarknessDoomEnabled;
+
     private void Awake()
     {
         if (Instance == null)
@@ -49,13 +51,14 @@ public class UiManager : MonoBehaviour
 
     public void BubbleToolButton()
     {
-        CurrentTool = Tool.BUBBLE;
-        OnToolChanged?.Invoke(this, EventArgs.Empty);
+        //CurrentTool = Tool.BUBBLE;
+        //OnToolChanged?.Invoke(this, EventArgs.Empty);
+        OnUltraGigaMaxiBubblesOfDarknessDoomEnabled?.Invoke(this, EventArgs.Empty);
     }
 
     public void UpdateScoreDistance(int score)
     {
-        _scoreText.text = "Distance : " + score;
+        _scoreText.text = "Score : " + score;
     }
 
     public void UpdateComboDisplay(float multiplier)
@@ -66,7 +69,7 @@ public class UiManager : MonoBehaviour
     public void RestartButton()
     {
         SfxManager.Instance.PlaySqueakSfx();
-        Invoke("LoadGame", 0.5f);
+        Invoke("LoadGame", 0.3f);
     }
 
     private void LoadGame()
@@ -77,7 +80,7 @@ public class UiManager : MonoBehaviour
     public void MenuButton()
     {
         SfxManager.Instance.PlaySqueakSfx();
-        Invoke("LoadMenu", 0.5f);
+        Invoke("LoadMenu", 0.3f);
     }
 
     private void LoadMenu()
