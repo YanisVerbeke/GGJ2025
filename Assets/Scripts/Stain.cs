@@ -14,6 +14,7 @@ public class Stain : MonoBehaviour
     [SerializeField] private float maxStainCleanness;
     private Transform dirtTransform;
     private GameObject cleanEffect;
+    private bool _effectLaunched = false;
     public bool IsCleaned { get; private set; }
 
 
@@ -49,11 +50,18 @@ public class Stain : MonoBehaviour
             if (_currentCleanStatus >= 0)
             {
                 cleanEffect.SetActive(true);
+                ParticleSystem.MainModule main = cleanEffect.GetComponent<ParticleSystem>().main;
+                main.startSize = (_currentCleanStatus + 0.25f) / 1.25f;
             }
             if (_currentCleanStatus >= 0.85f)
             {
                 IsCleaned = true;
                 dirtTransform.gameObject.SetActive(false);
+                if (!_effectLaunched)
+                {
+                    EffectsManager.Instance.SpawnSparkles(transform.position);
+                    _effectLaunched = true;
+                }
             }
         }
     }

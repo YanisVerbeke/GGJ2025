@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class UiManager : MonoBehaviour
     public event EventHandler OnToolChanged;
 
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private GameObject _endScreen;
+    [SerializeField] private GameObject _startText;
 
     private void Awake()
     {
@@ -25,6 +28,11 @@ public class UiManager : MonoBehaviour
         }
 
         CurrentTool = Tool.BLANK;
+    }
+
+    private void Start()
+    {
+        SetEndScreenVisibility(false);
     }
 
     public void BlankToolButton()
@@ -48,6 +56,26 @@ public class UiManager : MonoBehaviour
     public void UpdateScoreDistance(int score)
     {
         _scoreText.text = "Distance : " + score;
+    }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void MenuButton()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void SetEndScreenVisibility(bool active)
+    {
+        _endScreen.SetActive(active);
+    }
+
+    public void DisplayStartText(bool active)
+    {
+        _startText.SetActive(active);
     }
 
 }

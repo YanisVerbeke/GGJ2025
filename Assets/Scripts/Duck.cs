@@ -13,6 +13,7 @@ public class Duck : MonoBehaviour
     [SerializeField] private GameObject _bonusModel;
     private bool isAlive = true;
     private bool haveStarted = false;
+    private bool _startPressed = false;
     // Pas debug en fait, on en a vraiment besoin 
     private Vector3 _basePos;
 
@@ -36,30 +37,39 @@ public class Duck : MonoBehaviour
 
     private void Update()
     {
-        
+
         //Debug code, reset la position du canard a l'origine
         if (Input.GetKeyDown(KeyCode.E))
         {
             transform.position = _basePos;
         }
+
+        if (Input.GetButtonDown("Jump") && !haveStarted)
+        {
+            _startPressed = true;
+        }
     }
 
     private void FixedUpdate()
     {
-        if (_rigidbody.linearVelocity.z <= 0.1 && haveStarted)
+        if (_rigidbody.linearVelocity.z <= 0.4 && haveStarted)
         {
             isAlive = false;
+            _rigidbody.linearVelocity = Vector3.zero;
+            UiManager.Instance.SetEndScreenVisibility(true);
             Debug.Log("DEAD!");
         }
-        if (Input.GetButtonDown("Jump"))
+        if (_startPressed)
         {
             if (Mathf.Abs(_rigidbody.linearVelocity.z) < 0.2f)
             {
+                UiManager.Instance.DisplayStartText(false);
                 Propulse();
                 haveStarted = true;
+                _startPressed = false;
             }
         }
-        
+
         if (_rigidbody.linearVelocity.z > _maxSpeed)
         {
             _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, _rigidbody.linearVelocity.y, _maxSpeed);
@@ -74,7 +84,7 @@ public class Duck : MonoBehaviour
 
     private void Propulse()
     {
-        if(isAlive)
+        if (isAlive)
         {
             _rigidbody.AddForce(Vector3.forward * _propulseForce, ForceMode.Impulse);
         }
@@ -82,7 +92,7 @@ public class Duck : MonoBehaviour
 
     public void ChangeSpeed(float factorNormalized)
     {
-        if(isAlive)
+        if (isAlive)
         {
             _rigidbody.AddForce(factorNormalized * _rigidbody.linearVelocity * stainForce, ForceMode.Acceleration);
         }
