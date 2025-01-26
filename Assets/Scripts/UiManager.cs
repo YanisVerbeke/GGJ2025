@@ -58,7 +58,7 @@ public class UiManager : MonoBehaviour
 
     public void UpdateScoreDistance(int score)
     {
-        _scoreText.text = "Distance : " + score;
+        _scoreText.text = "Score : " + score;
     }
 
     public void UpdateComboDisplay(float multiplier)
