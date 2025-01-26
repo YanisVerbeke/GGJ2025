@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-using UnityEngine.WSA;
 
 public class DuckLauncher : MonoBehaviour
 {
@@ -20,11 +19,12 @@ public class DuckLauncher : MonoBehaviour
     private bool _launched;
 
     // Update is called once per frame 
-    void Update() {
+    void Update()
+    {
 
         if (!_launched)
         {
-           float force = Time.deltaTime * _impulse * cursorMoveSpeed;
+            float force = Time.deltaTime * _impulse * cursorMoveSpeed;
 
             if (_propulseForceNormalized <= 0)
             {
@@ -43,20 +43,20 @@ public class DuckLauncher : MonoBehaviour
             {
                 _launched = true;
 
-                _duck.StartGame(_propulseForceNormalized);
+                _duck.StartGame(Mathf.Clamp(_propulseForceNormalized, 0.2f, 1f));
 
                 _launcher.SetActive(false);
             }
         }
-        
-        
+
+
     }
 }
 
 
 
-    
 
-        
-    
+
+
+
 
