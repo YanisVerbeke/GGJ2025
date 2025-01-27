@@ -722,6 +722,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4014126581976147791, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: cleaningAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014126581976147791, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
+      propertyPath: _soapConsumption
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5666423793091968949, guid: d9a17a7489384f54d8c3f71c6484033f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
