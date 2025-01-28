@@ -36,6 +36,11 @@ public class Duck : MonoBehaviour
         _basePos = transform.position;
         previousPos = transform.position;
         timer = timeBeforeSpeedLimit;
+    }
+
+    private void Start()
+    {
+        UiManager.Instance.OnUltraGigaMaxiBubblesOfDarknessDoomEnabled += UiManager_OnUltraGigaMaxiBubblesOfDarknessDoomEnabled;
 
         //Le jeu casse completement sans ce code, on sait pas pourquoi
         if (Random.Range(0, 20) == 0)
@@ -50,11 +55,6 @@ public class Duck : MonoBehaviour
             _baseModel.SetActive(true);
             SfxManager.Instance.Bidoof = false;
         }
-    }
-
-    private void Start()
-    {
-        UiManager.Instance.OnUltraGigaMaxiBubblesOfDarknessDoomEnabled += UiManager_OnUltraGigaMaxiBubblesOfDarknessDoomEnabled;
     }
 
     private void UiManager_OnUltraGigaMaxiBubblesOfDarknessDoomEnabled(object sender, System.EventArgs e)
